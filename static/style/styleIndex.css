@@ -1,0 +1,16 @@
+
+main h2{
+	
+	color:red;
+}
+#homeContainer{
+	margin-top: 40px;
+	display:flex;
+}
+#homeImg{
+	margin-left: 30px;
+	flex:2;
+}
+#homeForm{
+	flex:5;
+}

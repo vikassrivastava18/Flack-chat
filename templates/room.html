@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<div id="roomContainer">
+<nav>   
+        <h2>CHANNELS</h2>
+	    <div id="channelCont">
+	    {% for channel in channels %}
+	    {% for key in channel %}
+	    <details open>
+	            <summary>{{ key }} <a href="{{ url_for('chat', room=channel[key]) }}">Join</a></summary>
+	            <ul>
+	               {% for count in channel[key] %}
+	               <li>{{ count }}</li>     
+	                {% endfor %}   
+	            </ul>
+	            
+	    </details>
+
+	    {% endfor %}
+	    {% endfor %}
+	    </div>  
+ </nav>
+ <main>
+ 	
+ 	<form action="{{ url_for('room') }}" method="POST">
+
+        <div class="form-group">
+      <label for="room"><h3>room:</h3></label>
+      <input type="text" class="form-control" id="room" name="room" style="width:200px;">
+    	 </div>
+
+    	<div class="form-group">
+      	<input type="submit" class="form-control" id="submit" class="btn btn-info" value="Submit Button" style="width:140px;">
+      </div>
+  	</form>
+ </main>
+</div>
+{% endblock %}

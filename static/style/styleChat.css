@@ -1,0 +1,67 @@
+.chatContainer{
+	margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+}
+.chatContainer nav{
+    flex:1;
+}
+.chatContainer main{
+    flex:5;
+}
+nav{
+	border: 5px solid green;
+	background-color: lightgreen;
+}
+
+
+@keyframes hide {
+    0% {
+        opacity: 1;
+        height: 100%;
+        line-height: 100%;
+        padding: 20px;
+        margin-bottom: 10px;
+    }
+    75% {
+        opacity: 0;
+        height: 100%;
+        line-height: 100%;
+        padding: 20px;
+        margin-bottom: 10px;
+    }
+    100% {
+        opacity: 0;
+        height: 0px;
+        line-height: 0px;
+        padding: 0px;
+        margin-bottom: 0px;
+    }
+}
+.post {
+    background-color: #db645c;
+    padding: 20px;
+    margin-bottom: 10px;
+    animation-name: hide;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-play-state: paused;
+}
+.hide{
+	float: right;
+}
+
+.postnew {
+    background-color: #4bf834;
+    padding: 20px;
+    margin-bottom: 10px;
+    animation-name: hide;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-play-state: paused;
+}
+
+
+
+
+

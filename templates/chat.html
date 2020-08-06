@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+{% block title %}Chat{% endblock %}
+{% block style %}
+<link rel="stylesheet" type="text/css" href="../static/style/style.css">
+<link rel="stylesheet" type="text/css" href="../static/style/styleChat.css">
+{% endblock %}
+{% block script %}
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.dev.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+<script id="post" type="text/x-handlebars-template">
+    <div class="post">
+        {% raw -%}
+            <span style="color:blue; margin-right: 20px;">{{ contents }}</span> <span style="color:rgb(186, 186, 201); margin-right: 20px;"> {{ extra }} </span> <span style="margin-right: 20px;"> {{ name }} </span>
+        {%- endraw %}
+        <button class="hide" style="padding:5px; border-radius: 6px; background-color: aquamarine">Hide</button>
+    </div>
+</script>
+<script type="text/javascript" src="../static/script/chatpast.js"></script>
+<script type="text/javascript" src="../static/script/chatnew.js"></script>
+
+{% endblock %}
+{% block main %}
+<div class="chatContainer">
+        <nav>   
+                
+            <h2>CHANNELS</h2>
+            <div id="channelCont">
+            {% for channel in channels %}
+            {% for key in channel %}
+            <details open>
+                    <summary>{{ key }} <a href="{{ url_for('chat', room=key) }}">Join</a></summary>
+                    <ul>
+                       {% for count in channel[key] %}
+                       <li>{{ count }}</li>     
+                        {% endfor %}   
+                    </ul>
+                    
+            </details>
+
+            {% endfor %}
+            {% endfor %}
+            </div>   
+        </nav>
+
+        <main>
+            <input type="text" name="room" id="chatMessage" autofocus placeholder="Type your message....">
+            <button type="button" class="btn" id="chatbutton">send</button>
+            <div id="newPost"></div>
+            <hr>
+            <div id="pastPosts">
+            </div>
+            <button type="button" class="btn" onclick= "load()">Basic</button>
+        </main>
+    </div>
+{% endblock %}

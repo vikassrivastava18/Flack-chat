@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block title %}Home Page{% endblock %}
+{% block style %}
+<link rel="stylesheet" type="text/css" href="static/style/styleIndex.css">
+{% endblock %}
+{% block main %}
+<main>			
+	<div id="homeContainer">
+		<div id="homeImg">
+        <img src="../static/images/chatBird.png">
+    	</div>
+    	<div id="homeForm" class="container">
+        <h2>Enter A Chat Room</h2>
+
+        <!-- Form -->
+        <form action="{{ url_for('index') }}" method="POST">
+
+        <div class="form-group">
+      <label for="username"><h3>Username:</h3></label>
+      <input type="text" class="form-control" id="username" name="username" style="width:340px;">
+    	 </div>
+
+    	<div class="form-group">
+      	<input type="submit" class="form-control" id="submit" class="btn btn-info" value="Submit Button" style="width:140px;">
+    	</div>
+        </form>
+    	</div>
+    </div>	          
+</main>
+
+
+{% endblock %}
