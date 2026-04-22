@@ -1,4 +1,5 @@
 # Flack-chat
 
-Chat application with Flask.
+Chat application with Flask and Flask-SocketIO.
+
 This project was part of Harvard's CS50 Web course in 2019. 
